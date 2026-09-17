@@ -1,0 +1,47 @@
+[
+  {
+    "id": "svc-001",
+    "name": "Apply for New Ujjwala 2.0 Connection",
+    "category": "Housing & Local services",
+    "description": "Apply for a subsidized LPG gas connection under the Ujjwala 2.0 scheme.",
+    "url": "https://www.india.gov.in/services/details/apply-for-new-ujjwala-20-connection",
+    "thumbnail": "https://via.placeholder.com/64?text=LPG",
+    "thumbnailAlt": "Icon for LPG gas connection"
+  },
+  {
+    "id": "svc-002",
+    "name": "eSanjeevani - National Telemedicine Service",
+    "category": "Health & Wellness",
+    "description": "Consult a doctor remotely through the national telemedicine platform.",
+    "url": "https://www.india.gov.in/services/details/esanjeevani-national-telemedicine-service",
+    "thumbnail": "https://via.placeholder.com/64?text=Health",
+    "thumbnailAlt": "Icon for Telemedicine service"
+  },
+  {
+    "id": "svc-003",
+    "name": "National Career Service for Job Seekers and Employers",
+    "category": "Jobs",
+    "description": "Search jobs, register as a job seeker, or post openings as an employer.",
+    "url": "https://www.india.gov.in/services/details/national-career-service-for-job-seekers-and-employers",
+    "thumbnail": "https://via.placeholder.com/64?text=Jobs",
+    "thumbnailAlt": "Icon for Career services"
+  },
+  {
+    "id": "svc-004",
+    "name": "BHAVISHYA - Pension Sanction and Payment Tracking System",
+    "category": "Money & Taxes",
+    "description": "Track the status of a government pension sanction and payment.",
+    "url": "https://www.india.gov.in/services/details/bhavishya-pension-sanction-and-payment-tracking-system",
+    "thumbnail": "https://via.placeholder.com/64?text=Money",
+    "thumbnailAlt": "Icon for Pension tracking"
+  },
+  {
+    "id": "svc-005",
+    "name": "Online textbooks of NCERT",
+    "category": "Education & Learning",
+    "description": "Access free digital copies of NCERT school textbooks.",
+    "url": "https://www.india.gov.in/services/details/online-textbooks-of-national-council-of-educational-research-and-training",
+    "thumbnail": "https://via.placeholder.com/64?text=Edu",
+    "thumbnailAlt": "Icon for NCERT textbooks"
+  }
+]

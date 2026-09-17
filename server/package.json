@@ -1,0 +1,17 @@
+{
+  "name": "@gov-portal/server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API server for the public services search vertical slice",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test ../test/server/**/*.test.js || exit 0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.19.2"
+  }
+}

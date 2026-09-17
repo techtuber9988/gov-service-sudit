@@ -1,0 +1,24 @@
+{
+  "name": "@gov-portal/client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Client for the public services search vertical slice",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run ../test/client --passWithNoTests"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@vitejs/plugin-react": "^4.3.1",
+    "jsdom": "^24.1.1",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5"
+  }
+}
