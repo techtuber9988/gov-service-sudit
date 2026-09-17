@@ -1,85 +1,121 @@
-# GovPortal: Accessible Public Services Portal
+# <p align="center">🇮🇳 GovPortal: Accessible Public Services Portal</p>
 
-A professional, high-fidelity full-stack implementation of a government services portal, reverse-engineered and improved based on an accessibility audit of [india.gov.in](https://www.india.gov.in/).
+<p align="center">
+  <img src="https://img.shields.io/badge/WCAG-2.1--AA-blue?style=for-the-badge&logo=accessibility" alt="WCAG 2.1 AA">
+  <img src="https://img.shields.io/badge/React-202324?style=for-the-badge&logo=react" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs" alt="Node.js">
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express" alt="Express">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite" alt="Vite">
+</p>
 
-This project demonstrates how to transform audit findings into real-world code, implementing a modern, accessible, and performant user experience.
+<p align="center">
+  <strong>A high-fidelity, full-stack implementation of a government services portal, designed to prove that accessibility and modern aesthetics can coexist.</strong>
+</p>
 
-## 🚀 Key Features
+---
 
-- **Multi-Page Experience**: Dedicated Home, Search, and About pages for better information architecture.
-- **Accessibility First**: Full remediation of 5 critical accessibility findings (WCAG 2.1).
-- **Modern UI/UX**:
-  - Custom design system using 'Outfit' and 'Inter' typography.
-  - Smooth CSS animations (text reveals, staggered slide-ups, and page transitions).
-  - Professional government-themed color palette.
-- **Full-Stack Architecture**: React (Vite) frontend communicating with an Express API backend.
-- **Automated Testing**: Comprehensive test suite covering both API logic and Accessibility contracts.
+## 🌟 Project Vision
 
-## 📂 Project Structure
+`GovPortal` is not just a search tool; it is a **blueprint for inclusive digital governance**. By reverse-engineering the National Portal of India, this project transforms critical accessibility audit findings into a seamless, high-performance user experience.
 
+### ✨ Core Pillars
+- **♿ Inclusive by Design**: Every pixel is audited for WCAG 2.1 compliance.
+- **⚡ Blazing Fast**: Built with Vite and a lightweight Express API for near-instant response times.
+- **🎨 Institutional Elegance**: A design language that balances official authority with modern usability.
+
+---
+
+## 🏗️ System Architecture
+
+The project follows a strict **separation of concerns** to ensure scalability and maintainability.
+
+```mermaid
+graph TD
+    User((User)) -->|Interacts with| UI[React Frontend]
+    UI -->|HTTP GET /api/services| API[Express Backend]
+    API -->|Reads/Filters| Data[(services.json)]
+    Data -->|JSON Response| API
+    API -->|Filtered Results| UI
+    UI -->|Renders| View[Accessible Result Cards]
+    
+    subgraph "Frontend (Vite)"
+    UI
+    View
+    end
+    
+    subgraph "Backend (Node.js)"
+    API
+    Data
+    end
 ```
-.
-├── client/                 # React SPA (Frontend)
-│   └── src/
-│       ├── components/     # UI Components
-│       │   ├── Home.jsx            # Landing page with info and animations
-│       │   ├── About.jsx           # Mission and accessibility info
-│       │   ├── Navigation.jsx      # Sticky top nav with routing
-│       │   ├── SearchPage.jsx      # Wrapper for the search feature
-│       │   └── ServiceSearch.jsx   # Core search logic & accessibility fixes
-│       ├── App.jsx                 # Root component & page state management
-│       ├── index.css               # Modern design system & animations
-│       └── main.jsx                # Entry point
-├── server/                 # Express API (Backend)
-│   └── src/
-│       ├── index.js                # Server entry point & CORS config
-│       ├── routes/services.js      # API endpoints for service filtering
-│       └── data/services.json      # Service dataset with accessibility metadata
-├── docs/                   # Audit Documentation
-│   ├── accessibility-audit-report.csv
-│   └── audit-methodology.md
-├── test/                   # Separate test directory
-│   ├── client/                     # Accessibility contract tests (Vitest)
-│   └── server/                     # API route tests (Node.js test)
-└── package.json            # Root workspace configuration
-```
 
-## 🛠️ From Audit Finding to Code Fix
+---
 
-| Finding ID | Issue | Fix Location | Implementation Detail |
-|---|---|---|---|
-| **WEB-001** | Placeholder "Loading..." alt text | `ServiceSearch.jsx` / `services.json` | Replaced lazy-load placeholders with descriptive `thumbnailAlt` text for every service image. |
-| **WEB-002** | Duplicated DOM for breakpoints | Architecture | Implemented a single responsive layout using CSS Grid/Flexbox instead of duplicating markup for mobile/desktop. |
-| **WEB-003** | Ambiguous "View All" links | `ServiceSearch.jsx` | Each result link uses an `aria-label` that explicitly states its destination (e.g., "View details for [Service Name]"). |
-| **WEB-004** | Inconsistent heading levels | `ServiceSearch.jsx` | Standardized heading hierarchy: Section uses `<h2>`, individual results use `<h3>`. |
-| **WEB-005** | Virtual-keyboard focus trap | `ServiceSearch.jsx` | Replaced custom virtual keyboard with a native `<input>`, ensuring 100% keyboard operability and no traps. |
+## 🛠️ The Accessibility Remediation Matrix
 
-## 🏁 Local Setup
+This project serves as a direct technical response to a structural audit.
 
-Requires Node.js 18+.
+| ID | Finding | ❌ Legacy Problem | ✅ GovPortal Solution | Impact |
+| :--- | :--- | :--- | :--- | :--- |
+| **WEB-001** | **Alt Text** | "Loading..." placeholders | Descriptive `thumbnailAlt` for all assets | 🟢 High |
+| **WEB-002** | **DOM Duplication** | Separate Mobile/Desktop HTML | Single responsive CSS Grid layout | 🟡 Med |
+| **WEB-003** | **Ambiguous Links** | Repeated "View All" text | Dynamic `aria-label` for every link | 🟢 High |
+| **WEB-004** | **Heading Logic** | Inconsistent H1/H2 levels | Strict semantic hierarchy (H2 $\rightarrow$ H3) | 🟡 Med |
+| **WEB-005** | **Focus Traps** | Custom virtual keyboards | Native HTML5 inputs & keyboard focus | 🟢 High |
 
+---
+
+## 🚀 Getting Started
+
+### 📦 Installation
 ```bash
-# 1. Install all dependencies for client and server
+# Clone the repository
+git clone <your-repo-url>
+cd gov-service-audit
+
+# Install dependencies for all workspaces
 npm install
-
-# 2. Start the Backend Server (Terminal 1)
-npm run dev:server   # Runs on http://localhost:4000
-
-# 3. Start the Frontend Client (Terminal 2)
-npm run dev:client   # Runs on http://localhost:5173
 ```
 
-## 🧪 Testing
+### ⚡ Execution
+This project requires two active processes:
 
-Run the complete test suite to verify both the API and the Accessibility Contract:
+| Component | Command | Port | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Backend** | `npm run dev:server` | `4000` | Serves the filtered JSON data |
+| **Frontend** | `npm run dev:client` | `5173` | Renders the accessible UI |
 
+---
+
+## 🧪 Quality Assurance
+
+We use a dual-layer testing strategy to ensure zero regressions in accessibility.
+
+### 1. API Validation
+Verifies the data integrity and filtering logic.
 ```bash
-npm test
+npm run test:server
 ```
 
-- **Server Tests**: Verifies that `GET /api/services` correctly filters and returns data.
-- **Client Tests**: Uses Vitest to programmatically ensure that `aria-labels`, `alt` text, and heading levels remain compliant with the audit fixes.
+### 2. Accessibility Contract (AC)
+Uses **Vitest** and **React Testing Library** to programmatically ensure that accessibility fixes (like `aria-labels` and `alt` text) are present in the DOM.
+```bash
+npm run test:client
+```
 
-## 🏛️ Project Vision
+---
 
-This project serves as a "proof of concept" for how government portals can transition from legacy, inaccessible designs to modern, inclusive digital experiences without sacrificing functionality or official authority.
+## 🎨 Design System
+
+- **Typography**: `Outfit` (Headings) & `Inter` (Body) for a balance of character and clarity.
+- **Palette**: 
+  - `Primary Blue (#003366)`: Authority and Trust.
+  - `Action Blue (#0056b3)`: Interaction and Guidance.
+  - `Focus Gold (#ffc107)`: High-visibility accessibility markers.
+- **Motion**: Subtle `cubic-bezier` transitions and `text-reveal` animations for a premium feel.
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ for a more inclusive Digital India.</strong>
+</p>
